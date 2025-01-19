@@ -13,6 +13,34 @@
         font-family: digit;
         src: url("digital-7_mono.ttf") format("truetype");
       }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .background-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .heart {
+        position: fixed;
+        color: blue;
+        font-size: 20px;
+        animation: float 15s linear infinite;
+      }
     </style>
     <link href="css/default.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.js"></script>
@@ -71,6 +99,40 @@
     </div>
 
     <script type="text/javascript">
+      function createHearts() {
+        const container = document.createElement("div");
+        container.className = "background-hearts";
+        document.body.appendChild(container);
+
+        setInterval(() => {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = "💙";
+
+          // Rastgele boyut (20px ile 50px arası)
+          const size = Math.random() * 30 + 20;
+          heart.style.fontSize = `${size}px`;
+
+          // Rastgele başlangıç pozisyonu
+          heart.style.left = Math.random() * 100 + "vw";
+          heart.style.top = "100vh";
+
+          // Rastgele rotasyon
+          const rotation = Math.random() * 360;
+          heart.style.animation = `float ${
+            Math.random() * 5 + 10
+          }s linear infinite`;
+          heart.style.transform = `rotate(${rotation}deg)`;
+
+          container.appendChild(heart);
+
+          // Animasyon bitiminde kalbi kaldır
+          setTimeout(() => {
+            heart.remove();
+          }, 15000);
+        }, 300);
+      }
+
       var offsetX = $("#loveHeart").width() / 2;
       var offsetY = $("#loveHeart").height() / 2 - 55;
       var together = new Date();
@@ -102,6 +164,7 @@
 
         adjustCodePosition();
         $("#code").typewriter();
+        createHearts();
       }
     </script>
   </body>
