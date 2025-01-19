@@ -4,6 +4,7 @@
   background: #ffe;
   font-size: 12px;
   overflow: auto;
+  background-color: #c1ecf7;
 }
 #mainDiv {
   width: 100%;
@@ -72,7 +73,6 @@
   font-family: "Consolas", "Monaco", "Bitstream Vera Sans Mono", "Courier New",
     "sans-serif";
   font-size: 42px;
-  margin-bottom: 80%;
 }
 #code .string {
   color: #2a36ff;
@@ -117,4 +117,5 @@
   align-content: center;
   text-align: center;
   margin: 20px;
+  padding-bottom: 15%;
 }

@@ -8,40 +8,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>THE AŞKIN KODU</title>
 
-    <style type="text/css">
-      @font-face {
-        font-family: digit;
-        src: url("digital-7_mono.ttf") format("truetype");
-      }
-
-      @keyframes float {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100vh) rotate(360deg);
-          opacity: 0;
-        }
-      }
-
-      .background-hearts {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: -1;
-      }
-
-      .heart {
-        position: fixed;
-        color: blue;
-        font-size: 20px;
-        animation: float 15s linear infinite;
-      }
-    </style>
+    
     <link href="css/default.css" type="text/css" rel="stylesheet" />
     <script type="text/javascript" src="js/jquery.js"></script>
     <script type="text/javascript" src="js/garden.js"></script>
@@ -51,6 +18,19 @@
   <body>
     <div id="mainDiv">
       <div id="content">
+        <div id="loveHeart">
+          <canvas id="garden"></canvas>
+          <div id="words">
+            <div id="messages">
+              SONSUZA KADAR AŞKIM
+              <div id="elapseClock"></div>
+            </div>
+            <div id="loveu">
+              SENİ ÇOK SEVİYORUM<br />
+              <div class="signature">- Üzeyircan</div>
+            </div>
+          </div>
+        </div>
         <div id="code">
           <span class="comments">/**</span><br />
           <span class="space" /><span class="comments">*THE AŞKIN KODU</span
@@ -83,20 +63,41 @@
           </span>
         </div>
       </div>
-      <div id="loveHeart">
-        <canvas id="garden"></canvas>
-        <div id="words">
-          <div id="messages">
-            SONSUZA KADAR AŞKIM
-            <div id="elapseClock"></div>
-          </div>
-          <div id="loveu">
-            SENİ ÇOK SEVİYORUM<br />
-            <div class="signature">- Üzeyircan</div>
-          </div>
-        </div>
-      </div>
+      
     </div>
+    <style type="text/css">
+      @font-face {
+        font-family: digit;
+        src: url("digital-7_mono.ttf") format("truetype");
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .background-hearts {
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .heart {
+        position: fixed;
+        color: blue;
+        font-size: 20px;
+        animation: float 15s linear infinite;
+      }
+    </style>
 
     <script type="text/javascript">
       function createHearts() {
